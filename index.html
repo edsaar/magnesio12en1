@@ -460,7 +460,7 @@
 <body>
 
 <!-- BAR -->
-<div class="bar">🚚 Envío gratis en pedidos mayores de Q250 &nbsp;|&nbsp; ¡Oferta especial: 20% OFF hoy!</div>
+<div class="bar">🚚 Envío gratis en pedidos mayores de Q225 &nbsp;|&nbsp; ¡Oferta especial: 20% OFF hoy!</div>
 
 <!-- NAV -->
 <nav>
@@ -468,7 +468,7 @@
     <span class="logo-icon">🌿</span>
     <div class="logo-text">Totaria <span>Health</span></div>
   </div>
-  <button class="nav-cta" onclick="document.getElementById('comprar').scrollIntoView({behavior:'smooth'})">Comprar ahora →</button>
+  <button class="nav-cta" onclick="openOrderModal()">Comprar →</button>
 </nav>
 
 <!-- HERO — Image 2 as background -->
@@ -751,20 +751,16 @@
     const cantidad = document.getElementById('qty').textContent;
     const total    = parseInt(cantidad) * 225;
 
-    const msg = `🛒 NUEVO PEDIDO — Magnesium 12-in-1 Complex\n\n`
-      + `👤 Nombre: ${nombre}\n`
-      + `📍 Dirección: ${direccion}\n`
-      + `📞 Teléfono principal: ${tel1}\n`
-      + (tel2 ? `📞 Teléfono adicional: ${tel2}\n` : '')
-      + `📦 Cantidad: ${cantidad} frasco(s)\n`
-      + `💰 Total a pagar: Q.${total} (contra entrega en efectivo / Forza)\n`
-      + (nota ? `📝 Nota del cliente: ${nota}` : '');
+    const msg = '🛒 NUEVO PEDIDO — Magnesium 12-in-1 Complex'
+      + '%0A%0A' + '👤 Nombre: ' + nombre
+      + '%0A' + '📍 Dirección: ' + direccion
+      + '%0A' + '📞 Teléfono principal: ' + tel1
+      + (tel2 ? '%0A📞 Teléfono adicional: ' + tel2 : '')
+      + '%0A' + '📦 Cantidad: ' + cantidad + ' frasco(s)'
+      + '%0A' + '💰 Total a pagar: Q.' + total + ' - Pago contra entrega en efectivo (Forza)'
+      + (nota ? '%0A📝 Nota: ' + nota : '');
 
-    // FB page username — replace TU_PAGINA with real page username
-    const fbPage = 'essentialhealthstore';
-    const encoded = encodeURIComponent(msg);
-    const url = `https://m.me/${fbPage}?text=${encoded}`;
-    window.open(url, '_blank');
+    window.open('https://wa.me/50241076707?text=' + msg, '_blank');
     closeOrderModal();
   }
   function toggleFaq(el){
@@ -790,7 +786,7 @@
       <h3>Completa tu<br><span>pedido</span></h3>
       <button class="modal-close" onclick="closeOrderModal()">✕</button>
     </div>
-    <p class="modal-sub">Pago contra entrega · Te contactamos para confirmar</p>
+    <p class="modal-sub">Pago contra entrega · Pedido vía WhatsApp</p>
 
     <div class="modal-body">
       <div class="order-summary">
@@ -833,10 +829,10 @@
           <textarea id="o-nota" rows="2" placeholder="Ej: dejar con el vecino, horario preferido de entrega..."></textarea>
         </div>
         <button type="submit" class="btn-submit">
-          <span>📲</span> Enviar pedido por Messenger
+          <span>🛒</span> Comprar
         </button>
       </form>
-      <p class="modal-footer-note">Al presionar el botón se abrirá Messenger con tu pedido listo para enviar ✓</p>
+      <p class="modal-footer-note">Tu pedido se enviará directo a WhatsApp · Pago contra entrega ✓</p>
     </div>
   </div>
 </div>
