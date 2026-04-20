@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#0A1628">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Magnesium 12-in-1 Complex — Totaria Health</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -357,15 +360,129 @@
   @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 
   /* RESPONSIVE */
-  @media(max-width:768px){
-    .hero-overlay { padding:0 5%; }
-    .hero h1 { font-size:38px; }
-    .hero-sub-title { font-size:18px; }
-    .product-section { grid-template-columns:1fr; gap:36px; }
+  /* ── TABLET ── */
+  @media(max-width:900px){
+    .product-section { grid-template-columns:1fr; gap:40px; padding:0; }
     .showcase-inner { grid-template-columns:1fr; gap:30px; }
-    .steps { flex-direction:column; }
+    .types-grid { grid-template-columns:repeat(3,1fr); }
+  }
+
+  /* ── MOBILE ── */
+  @media(max-width:768px){
+    /* Nav */
+    nav { padding:14px 5%; }
+    .logo-text { font-size:18px; }
+    .nav-cta { padding:10px 18px; font-size:13px; }
+
+    /* Bar */
+    .bar { font-size:11px; padding:8px 12px; }
+
+    /* Hero */
+    .hero-img { max-height:480px; object-position:60% center; }
+    .hero-overlay {
+      padding:0 5%;
+      background: linear-gradient(180deg, rgba(6,15,30,.5) 0%, rgba(6,15,30,.95) 60%, rgba(6,15,30,1) 100%);
+      align-items:flex-end; padding-bottom:40px;
+    }
+    .hero-text-block { max-width:100%; }
+    .hero-badge { font-size:10px; padding:5px 12px; }
+    .hero h1 { font-size:36px; }
+    .hero-sub-title { font-size:16px; }
+    .hero-tag { font-size:11px; margin-bottom:20px; }
+    .hero-features li { font-size:13px; gap:8px; padding:6px 0; }
+    .hero-actions { flex-direction:column; gap:10px; }
+    .btn-gold { text-align:center; padding:16px 24px; font-size:15px; }
+    .btn-outline { text-align:center; padding:14px 24px; font-size:14px; }
+
+    /* Trust strip */
+    .trust-strip { flex-wrap:wrap; }
+    .ts-item { width:50%; border-right:none; border-bottom:1px solid rgba(255,255,255,.1); justify-content:center; font-size:12px; padding:12px 10px; }
+
+    /* Symptoms */
+    .symptoms { padding:60px 5%; }
+    .symptoms-grid { grid-template-columns:1fr 1fr; gap:14px; }
+    .sym-card { padding:20px 14px; }
+    .sym-e { font-size:26px; }
+    .sym-card h4 { font-size:13px; }
+
+    /* Product + buy */
+    section[style*="padding:90px 6%"] { padding:50px 5% !important; }
+    .product-section { grid-template-columns:1fr !important; gap:28px !important; }
+    .product-img-wrap img { border-radius:14px; }
+    .img-badge { font-size:16px; padding:8px 14px; bottom:16px; left:16px; }
+    .buy-box { padding:24px 20px; border-radius:16px; }
+    .product-name { font-size:28px; }
+    .price-now { font-size:38px; }
+    .price-old { font-size:18px; }
+    .btn-add { padding:17px; font-size:16px; }
+    .btn-buy { padding:15px; font-size:14px; }
+    .guarantee-row { gap:10px; }
+    .g-badge { font-size:11px; }
+
+    /* Types */
+    .types-section { padding:60px 5%; }
+    .types-grid { grid-template-columns:1fr 1fr; gap:12px; }
+    .type-card { padding:16px 12px; }
+    .type-num { font-size:24px; }
+    .type-name { font-size:11px; }
+    .type-desc { font-size:11px; }
+
+    /* Showcase */
+    .showcase { padding:50px 5%; }
+    .showcase-inner { grid-template-columns:1fr !important; gap:28px; }
+    .showcase-features li { padding:12px 0; font-size:14px; }
+
+    /* How */
+    .how { padding:60px 5%; }
+    .steps { flex-direction:column; align-items:center; gap:28px; }
     .steps::before { display:none; }
-    .trust-strip .ts-item { width:50%; border-right:none; border-bottom:1px solid rgba(255,255,255,.1); justify-content:center; }
+    .step { max-width:280px; }
+
+    /* Testimonials */
+    .testimonials { padding:60px 5%; }
+    .testi-grid { grid-template-columns:1fr; }
+
+    /* Guarantee */
+    .guar-section { padding:60px 5%; }
+    .g-icon2 { font-size:56px; }
+
+    /* FAQ */
+    .faq { padding:60px 5%; }
+    .faq-q { font-size:14px; }
+
+    /* Final CTA */
+    .final-cta { padding:70px 5%; }
+
+    /* Modal full screen on mobile */
+    .modal-backdrop { padding:0; align-items:flex-end; }
+    .modal-box {
+      border-radius:24px 24px 0 0;
+      max-height:92vh;
+      animation: modalInMobile .3s ease both;
+    }
+    @keyframes modalInMobile { from{transform:translateY(100%)} to{transform:translateY(0)} }
+    .modal-header { padding:20px 20px 0; }
+    .modal-header h3 { font-size:22px; }
+    .modal-body { padding:18px 20px 40px; }
+    .modal-sub { padding:6px 20px 16px; }
+    .form-row { grid-template-columns:1fr; gap:0; }
+    .order-summary { flex-direction:column; gap:10px; align-items:flex-start; }
+    .os-price { font-size:28px; }
+    .btn-submit { padding:17px; font-size:16px; }
+    .form-group input,
+    .form-group textarea { font-size:16px; } /* prevents iOS zoom on focus */
+
+    /* Section titles */
+    .section-title { font-size:28px; }
+  }
+
+  /* ── SMALL PHONES ── */
+  @media(max-width:380px){
+    .hero h1 { font-size:30px; }
+    .symptoms-grid { grid-template-columns:1fr; }
+    .types-grid { grid-template-columns:1fr 1fr; }
+    .ts-item { width:100%; }
+    .price-now { font-size:32px; }
   }
 
   /* ── ORDER MODAL ── */
